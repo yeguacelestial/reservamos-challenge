@@ -85,6 +85,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "reservamos_challenge.users",
+    "reservamos_challenge.forecasts",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -281,7 +282,9 @@ ACCOUNT_FORMS = {"signup": "reservamos_challenge.users.forms.UserSignupForm"}
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
 SOCIALACCOUNT_ADAPTER = "reservamos_challenge.users.adapters.SocialAccountAdapter"
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
-SOCIALACCOUNT_FORMS = {"signup": "reservamos_challenge.users.forms.UserSocialSignupForm"}
+SOCIALACCOUNT_FORMS = {
+    "signup": "reservamos_challenge.users.forms.UserSocialSignupForm",
+}
 
 # django-rest-framework
 # -------------------------------------------------------------------------------
