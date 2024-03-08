@@ -11,6 +11,10 @@ License: MIT
 
 Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
 
+## Run locally with Docker
+
+See detailed [cookiecutter-django Docker documentation](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally-docker.html).
+
 ## Basic Commands
 
 ### Setting Up Your Users
