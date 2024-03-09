@@ -64,7 +64,7 @@ See detailed [cookiecutter-django Docker documentation](http://cookiecutter-djan
 - [x] Configure a new Django Cookiecutter project
 - [x] Test OpenWeatherMap API endpoint
 - [x] Test Reservamos cities API endpoint
-- [ ] Create GET endpoint view
+- [x] Create GET endpoint view
 - [ ] Test endpoint from an API Client
 - [ ] Create a test to verify requirement is working as expected
 
