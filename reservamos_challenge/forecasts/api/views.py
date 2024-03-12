@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from utils import openweather
 from utils import reservamos
 
+from django.core.cache import cache
+
 
 class ForecastViewSet(viewsets.ViewSet):
     def list(self, request):
@@ -18,7 +20,7 @@ class ForecastViewSet(viewsets.ViewSet):
                 # For each city, create a task to fetch weather info:
                 future_weather = {
                     executor.submit(
-                        openweather.get_weather,
+                        openweather.get_weather_with_cache,
                         place.get("lat", ""),
                         place.get("long", ""),
                     ): place
@@ -39,7 +41,7 @@ class ForecastViewSet(viewsets.ViewSet):
                             }
                         place["weather_forecast"] = weather_forecast
 
-                response_data["places"] = places
+                response_data = places
 
         else:
             response_data["error"] = "City was not received"
