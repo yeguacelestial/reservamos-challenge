@@ -1,8 +1,9 @@
 from concurrent.futures import ThreadPoolExecutor
+
 from rest_framework import viewsets
 from rest_framework.response import Response
-from utils import openweather
-from utils import reservamos
+
+from reservamos_challenge.utils import openweather, reservamos
 
 
 class ForecastViewSet(viewsets.ViewSet):
