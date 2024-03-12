@@ -13,7 +13,11 @@ Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings
 
 ## Run locally with Docker
 
-First, build the project with docker:
+Create a `.env` file with the following API Key (OpenWeather API Key with subscription for one-call requests):
+
+    OPENWEATHER_API_KEY="<your-api-key>"
+
+Build the project with docker:
 
     $ docker compose -f local.yml build
 
