@@ -5,15 +5,24 @@ from rest_framework.response import Response
 
 from reservamos_challenge.utils import openweather, reservamos
 
+from reservamos_challenge.forecasts.api.serializers import CitySerializer
+
 
 class ForecastViewSet(viewsets.ViewSet):
     def list(self, request):
-        city = request.query_params.get("city", None)
+        serializer = CitySerializer(data=request.query_params)
 
-        response_data = {}
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=400)
+
+        city = serializer.validated_data["city"]
+
         if city:
             # Request city info on Reservamos API
             places = reservamos.get_places(city)
+
+            if len(places) == 0:
+                return Response({"message": "no places were found"}, status=404)
 
             with ThreadPoolExecutor() as executor:
                 # For each city, create a task to fetch weather info:
@@ -28,7 +37,11 @@ class ForecastViewSet(viewsets.ViewSet):
 
                 for future in future_weather:
                     place = future_weather[future]
-                    place_weather = future.result()
+
+                    try:
+                        place_weather = future.result(timeout=10)  # 10-second timeout
+                    except TimeoutError:
+                        place_weather = {}
 
                     if "daily" in place_weather:
                         weather_forecast = {}
@@ -40,9 +53,7 @@ class ForecastViewSet(viewsets.ViewSet):
                             }
                         place["weather_forecast"] = weather_forecast
 
-                response_data = places
+                return Response(places, status=200)
 
         else:
-            response_data["error"] = "City was not received"
-
-        return Response(response_data, status=200)
+            return Response({"error": "no city received"}, status=400)

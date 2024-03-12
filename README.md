@@ -84,6 +84,6 @@ See detailed [cookiecutter-django Docker documentation](http://cookiecutter-djan
 - [x] Add caching for faster results
 
 #### Extra
-- [ ] Create a unit test to verify requirement is working as expected
+- [x] Create a unit test to verify requirement is working as expected
 - [ ] Launch project to the cloud
 - [ ] Create a basic front-end client
