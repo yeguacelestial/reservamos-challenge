@@ -13,7 +13,7 @@ def get_weather(latitude: str, longitude: str):
     return response
 
 
-def get_weather_with_cache(latitude, longitude):
+def get_weather_with_cache(latitude: str, longitude: str):
     cache_key = f"weather_{latitude}_{longitude}"
     weather_data = cache.get(cache_key)
 

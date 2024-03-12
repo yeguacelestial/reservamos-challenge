@@ -80,10 +80,10 @@ See detailed [cookiecutter-django Docker documentation](http://cookiecutter-djan
 - [x] Create business logic for endpoint
 - [x] Refactor and reduce response time
 - [x] Test endpoint from an API Client
-- [x] Agregar procesamiento paralelo
-- [x] Agregar caché
+- [x] Add concurrency to forecast viewset
+- [x] Add caching for faster results
 
 #### Extra
-- [ ] Create a behavior test to verify requirement is working as expected
+- [ ] Create a unit test to verify requirement is working as expected
 - [ ] Launch project to the cloud
 - [ ] Create a basic front-end client

@@ -4,8 +4,6 @@ from rest_framework.response import Response
 from utils import openweather
 from utils import reservamos
 
-from django.core.cache import cache
-
 
 class ForecastViewSet(viewsets.ViewSet):
     def list(self, request):
