@@ -13,6 +13,14 @@ Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings
 
 ## Run locally with Docker
 
+First, build the project with docker:
+
+    $ docker compose -f local.yml build
+
+Then, open a terminal at the project root and run the following for local development:
+
+    $ docker compose -f local.yml up
+
 See detailed [cookiecutter-django Docker documentation](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally-docker.html).
 
 ## Basic Commands
@@ -66,10 +74,10 @@ See detailed [cookiecutter-django Docker documentation](http://cookiecutter-djan
 - [x] Test Reservamos cities API endpoint
 - [x] Create GET endpoint view
 - [x] Create business logic for endpoint
-- [ ] Refactor and reduce response time
-- [ ] Test endpoint from an API Client
-- [ ] Create a test to verify requirement is working as expected
+- [x] Refactor and reduce response time
+- [x] Test endpoint from an API Client
 
 #### Extra
+- [ ] Create a behavior test to verify requirement is working as expected
 - [ ] Launch project to the cloud
 - [ ] Create a basic front-end client
